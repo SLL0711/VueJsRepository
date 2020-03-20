@@ -4,7 +4,7 @@ My First Vue Project
 +   命令式编程优势
     -   html JS数据绑定 分离
     -   MVVM模式：View ViewModel Model
-    -   ViewModel:dataBinding数据双绑
+    -   ViewModel:dataBinding数据双绑111
 +   Vue指令
     -   v-for="item in list"
     -   v-on:click 语法糖：@click
