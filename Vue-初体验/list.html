@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="list">
+        <span v-for="item1 in list">
+            {{item1}}
+        </span>
+        <button v-on:click="listAdd1()" style="display: block;">点击我+1</button>
+        <button @click="listAdd1()" style="display: block;">点击我+1</button>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#list',
+            data: {
+                list: [1, 2, 3]
+            },
+            methods: {
+                listAdd1: () => {
+                    let listMax = app.list[app.list.length - 1];
+                    app.list.push(listMax + 1);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

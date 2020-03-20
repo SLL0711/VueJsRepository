@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <div id="span">{{message}}</div>
+    <div class="span">{{message}}</div>
     <script>
         const app = new Vue({
-            el: '#span',
+            el: '.span',//用于挂载要管理的对象
             data: {
                 message: 'Hello Vue'
             }
