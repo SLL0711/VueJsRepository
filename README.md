@@ -1,2 +1,2 @@
 # VueJsRepository
-VUE
+My First Vue Project
