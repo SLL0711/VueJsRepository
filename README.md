@@ -8,6 +8,7 @@ My First Vue Project
 +   Vue指令
     -   v-for="item in list"
     -   v-on:click 语法糖：@click
+    -   v-once:
 +   Vue属性
     -   el：承载的元素
     -   data：变量

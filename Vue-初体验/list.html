@@ -20,6 +20,12 @@
         <button @click="listAdd1()" style="display: block;">点击我+1</button>
     </div>
     <script>
+        let a = function(options){
+            debugger;
+            console.log(options||'1');
+        }
+        
+        a(2,3);
         let app = new Vue({
             el: '#list',
             data: {
