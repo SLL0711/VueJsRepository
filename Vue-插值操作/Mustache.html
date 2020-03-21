@@ -6,21 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="../node_modules/vue/dist/vue.js"></script>
+
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+
+        .Color {
+            color: blue !important;
+        }
+    </style>
 </head>
 
 <body>
     <div id="divDemo">
         <h2> {{FirstName}} </h2>
         <h2 v-once> {{LastName}} </h2>
+
+        <h2 v-cloak> {{FirstName}} </h2>
+        <h2 v-bind:[attr]="FirstName">111</h2>
+        <span v-pre>{{ FirstName }}</span>
+        <h2 :[attr]="FirstName" :style="style">111</h2>
+        <h2 class="title" :class="{active:active,Color:color}" :style="style">111</h2>
+        <input type="button" @click="changeColor()" value="点击转变颜色">
     </div>
     <script>
+        // setTimeout(() => {
         var vue = new Vue({
             el: '#divDemo',
             data: {
                 FirstName: 'f',
-                LastName: 'l'
+                LastName: 'l',
+                attr: 'Prop',
+                style: {
+                    'color': 'red',
+                    'font-size': '16px'
+                },
+                active: true,
+                color: false
+            },
+            methods:{
+                changeColor:function(){
+                    this.color = !this.color;
+                }
             }
         });
+        // }, 500)
     </script>
 </body>
 

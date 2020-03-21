@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul li {
+            cursor: pointer;
+        }
+        
+        ul{
+            list-style: none;
+        }
+
+        .active {
+            color: red;
+            font-size: 20px;
+            transition: 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li v-for="(item,index) in infos" :class="{active:getClass(index)==active}" @click="onLiClick(index)">
+            {{item}} {{index}}
+        </li>
+    </ul>
+    <script>
+        let app = new Vue({
+            el: 'ul',
+            data: {
+                infos: ['严重故障', '紧急故障', '一般故障', '咨询问题'],
+                active: 'active0'
+            },
+            methods: {
+                getClass: function (index) {
+                    return 'active' + index;
+                },
+                onLiClick: function (index) {
+                    this.active = 'active' + index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
