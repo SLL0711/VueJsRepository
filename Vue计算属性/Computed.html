@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="divDemo">
+        {{lastName}}{{firstName}}<br>
+        {{fullName}}
+        {{totalPrice}}
+        {{totalPrice2}}
+        {{getFullName()}}
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#divDemo',
+            data: {
+                'firstName': 'LiLin',
+                'lastName': 'Shen',
+                'books': [
+                    { id: '01', name: '代码大全', price: 100 },
+                    { id: '02', name: '深入理解计算机原理', price: 200 },
+                    { id: '03', name: '现代操作系统', price: 300 }
+                ]
+            },
+            methods: {
+                'getFullName':function(){
+                    return this.books.reduce(function (total, num) {
+                        return total + num.price;
+                    }, 0);
+                }
+            },
+            computed: {
+                'fullName': function () {
+                    return this.lastName + this.firstName
+                },
+                'totalPrice': function () {
+                    return this.books.reduce(function (total, num) {
+                        return total + num.price;
+                    }, 0);
+                },
+                'totalPrice2': (app) => {
+                    return app.books.reduce(function (total, num) {
+                        return total + num.price;
+                    }, 0);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
