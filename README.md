@@ -47,3 +47,4 @@ My First Vue Project
             <input name="UserEmail" id="UserEmail" key="UserEmail">
         </span>
     ```
+    -   v-show 类似display:none v-if:删除DOM
