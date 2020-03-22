@@ -1,7 +1,7 @@
 # VueJsRepository
 My First Vue Project
 ##  命令式编程>>申明式编程
-+   ES6中的let相较于var具有==块级作用域==
++   ES6中的let相较于var具有<font color="#dddd00">块级作用域</font>
     -   ES5中的'函数'具有作用域，可以使用闭包来解决一些作用域引发的问题
 ``` 
  for (var i = 0; i < btns.length; i++) {
