@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app" v-on:click="divClick">
+        <!-- .stop组织冒泡 -->
+        <!-- .prevent阻止默认行为 -->
+        <button v-on:click.stop.once="btnClick">点击我</button>
+        <span v-pre>{{ this will not be compiled }}</span>
+        <pre>&lta href=""&gt嘿嘿嘿&lt/a&gt</pre>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                divClick() {
+                    console.log('divCLick');
+                },
+                btnClick() {
+                    console.log('btnClick');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
