@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="ulDemo">
+        <ul>
+            <li v-for="item in arr" v-bind:key="item">
+                {{item}}
+            </li>
+        </ul>
+        <button @click="onClick()">点击我</button>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#ulDemo',
+            data: {
+                arr: ['A', 'B', 'C', 'D', 'E']
+            },
+            methods: {
+                onClick:function() {
+                    Vue.set(this.arr, 0, 'AAA');
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

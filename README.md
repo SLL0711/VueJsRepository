@@ -48,3 +48,5 @@ My First Vue Project
         </span>
     ```
     -   v-show 类似display:none v-if:删除DOM
+    -   v-for遍历对象/数组,可以通过添加v-bind:key 提升性能，具体见文档。key值必须与item一一对应
+    -    Vue.set(this.arr, 0, 'AAA');设置对象并渲染

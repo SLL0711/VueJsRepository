@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div id="divDemo1">
+        <table>
+            <thead>
+                <th></th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </thead>
+            <tbody>
+                <tr v-for="(item,index) in books">
+                    <td>{{index+1}}</td>
+                    <td>{{item.name}}</td>
+                    <td>2020/03/23</td>
+                    <td>{{getPriceFixed2(item.price)}}</td>
+                    <td>
+                        <button @click="btnAdd(index,0)">-</button>
+                        {{item.count}}
+                        <button @click="btnAdd(index,1)">+</button>
+                    </td>
+                    <td>
+                        <button @click="btnRemove(index)">移除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div v-if="TotalPrice>0">
+            <h2>总价：￥{{getPriceFixed2(TotalPrice)}}</h2>
+        </div>
+        <div v-else>
+            <h2>请选择您需要购买的书籍哟</h2>
+        </div>
+    </div>
+
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
