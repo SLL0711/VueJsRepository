@@ -31,11 +31,9 @@ let app = new Vue({
             return price.toFixed(num || 2);
         },
         getTotalPrice() {
-            let tPrice = 0;
-            for (let i = 0; i < this.books.length; i++) {
-                tPrice += (this.books[i].count * this.books[i].price)
-            }
-            this.TotalPrice = tPrice;
+            this.TotalPrice = this.books.reduce(function (total, book) {
+                return total + book.price * book.count;
+            }, 0);
         }
     },
     computed: {
