@@ -1,12 +1,14 @@
 # VueJsRepository
 My First Vue Project
 ##  JS高级函数
-+   reduce
++   arr.reduce
 ```
 this.books.reduce(function (total, book) {
                 return total + book.price * book.count;
             }, 0);
 ```
++   arr.map
++   arr.filter
 ##  命令式编程>>申明式编程
 +   ES6中的let相较于var具有<font color="#dddd00">块级作用域</font>
     -   ES5中的'函数'具有作用域，可以使用闭包来解决一些作用域引发的问题
@@ -56,4 +58,5 @@ this.books.reduce(function (total, book) {
     ```
     -   v-show 类似display:none v-if:删除DOM
     -   v-for遍历对象/数组,可以通过添加v-bind:key 提升性能，具体见文档。key值必须与item一一对应
-    -    Vue.set(this.arr, 0, 'AAA');设置对象并渲染
+    -   Vue.set(this.arr, 0, 'AAA');设置对象并渲染
+    -   v-model:表单数据双绑定:.lazy .number .trim

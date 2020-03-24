@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="divDemo">
+        <!-- input双绑 -->
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+
+        <!-- select双绑 -->
+        <!-- select多选 双绑 -->
+        <div>
+            <select name="mySelect" id="mySelect" v-model="selected">
+                <option>请选择</option>
+                <option>香蕉</option>
+                <option>苹果</option>
+                <option>猕猴桃</option>
+                <option>梨子</option>
+            </select>
+            我选择了<label for="">{{selected}}</label>
+            <select name="mySelectMul" id="mySelectMul" v-model="selecteds" multiple>
+                <option>请选择</option>
+                <option>香蕉</option>
+                <option>苹果</option>
+                <option>猕猴桃</option>
+                <option>梨子</option>
+            </select>
+            我选择了<label for="">{{selecteds}}</label>
+        </div>
+
+        <!-- radio双绑 -->
+        <div>
+            <input type="radio" name="sex" id="male" v-model="picked" value="男人"> <label for="male">男</label>
+            <input type="radio" name="sex" id="female" v-model="picked" value="女人"><label for="female">女</label>
+            <span>Picked: {{ picked }}</span>
+        </div>
+
+        <!-- checkbox双绑 -->
+        <div>
+            <label for="singleChk">
+                请选择
+                <input id="singleChk" type="checkbox" v-model="checked" true-value="选中啦" false-value="没选中哦">
+            </label>
+            <span>{{checked}}</span>
+        </div>
+        <!-- checkbox多选双绑 -->
+        <div>
+            <label for="multipleChk1">
+                <input id="multipleChk1" type="checkbox" v-model="multiplechecked" value="饿了" />
+                饿了
+            </label>
+            <label for="multipleChk2">
+                <input id="multipleChk2" type="checkbox" v-model="multiplechecked" value="困了">
+                困了
+            </label>
+            <label for="multipleChk3">
+                <input id="multipleChk3" type="checkbox" v-model="multiplechecked" value="累了">
+                累了
+            </label>
+            <span>{{multiplechecked}}</span>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#divDemo',
+            data: {
+                message: '11',
+                selected: '',
+                selecteds: [],
+                picked: '',
+                checked: '选中啦',
+                multiplechecked: []
+            }
+        })
+    </script>
+</body>
+
+</html>
