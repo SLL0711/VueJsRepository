@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //filter函数
+        let arr = [10, 20, 50, 80, 100, 300];
+        let arrFilter = arr.filter(function (n) { //类似于JQuery中的$.grep
+            return n < 100;
+        });
+        let arrMap = arr.map(function (v) {//JQuery 中的$.map函数
+            return v * 2;
+        });
+        let arrReduce = arr.reduce(function(total,v){//用作数组对象的汇总
+            return total+v;
+        })
+
+        console.log(JSON.stringify({ arrFilter }));
+        console.log(JSON.stringify({ arrMap }));
+        console.log(JSON.stringify({ arrReduce }));
+    </script>
+</body>
+
+</html>
