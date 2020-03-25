@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="divDemo">
+        <cpn-p></cpn-p>
+    </div>
+    <script>
+        let app = new Vue({
+            el: '#divDemo',
+            components: {
+                'cpn-p': {
+                    template: ` <div>
+                                    <span>我是父组件</span>
+                                    <cpn-c></cpn-c>
+                                </div>`,
+                    components: {
+                        'cpn-c': {
+                            template: `<span>我是子组件</span>`
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

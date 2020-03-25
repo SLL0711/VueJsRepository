@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <div id="divDemo">
+        <cpn-p></cpn-p>
+    </div>
+    <script>
+        // 申明子组件实例
+        let cpnC = Vue.extend({
+            template: `
+            <span>我是子组件</span>
+            `,
+        })
+        // 申明父组件实例中包含子组件
+        let cpnP = Vue.extend({
+            template: `
+           <div>
+            <span>我是父组件</span>
+            <cpn-c></cpn-c>
+           </div>
+            `,
+            components: {
+                'cpn-c': cpnC
+            }
+        });
+
+        let app = new Vue({
+            el: '#divDemo',
+            components: {
+                'cpn-p': cpnP
+            }
+        })
+    </script>
+</body>
+
+</html>

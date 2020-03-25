@@ -26,6 +26,7 @@ this.books.reduce(function (total, book) {
 +   ES6增强写法
     -   {name,age}
     -   {eat(){}}
+    -   `` 类似于 "" 但是可以直接包裹换行的代码
 +   命令式编程优势
     -   html JS数据绑定 分离
     -   MVVM模式：View ViewModel Model
@@ -60,3 +61,10 @@ this.books.reduce(function (total, book) {
     -   v-for遍历对象/数组,可以通过添加v-bind:key 提升性能，具体见文档。key值必须与item一一对应
     -   Vue.set(this.arr, 0, 'AAA');设置对象并渲染
     -   v-model:表单数据双绑定:.lazy .number .trim
++   Vue组件化开发
+    -   组件必须在Vue挂在的element元素下使用
+    -   组件式可复用的Vue实例
+    -   全局组件、局部组件、子组件
+    -   使用组件会优先查看局部组件，其次查看全局组件
+        -   父组件A 子组件B，Vue实例中只引用A的话无法在挂载Dom对象中直接使用B。
+        必须在Vue实例中引入B
