@@ -67,4 +67,4 @@ this.books.reduce(function (total, book) {
     -   全局组件、局部组件、子组件
     -   使用组件会优先查看局部组件，其次查看全局组件
         -   父组件A 子组件B，Vue实例中只引用A的话无法在挂载Dom对象中直接使用B。
-        必须在Vue实例中引入B
+        必须在Vue实例中引入B 
