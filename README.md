@@ -67,4 +67,15 @@ this.books.reduce(function (total, book) {
     -   全局组件、局部组件、子组件
     -   使用组件会优先查看局部组件，其次查看全局组件
         -   父组件A 子组件B，Vue实例中只引用A的话无法在挂载Dom对象中直接使用B。
-        必须在Vue实例中引入B 
+        必须在Vue实例中引入B
+    -   组件模板抽离
+        -   <script type="x-template" id="cpt"> 需要定义在 Vue 所属的 DOM 元素外。
+        -   <template id="cpt">标签
+    -   组件内部不能访问Vue实例的数据
+    -   组件内的typeof(data) == function,每个组件实例指向一份独立的数据
+    -   父子组件通信：
+        -   父组件通过prop传递数据给子组件
+        -   子组件通过‘自定义事件’传递数据给父组件 $emit (使用$parent.函数名可以实现子组件调用父组件函数/于$emit区别)
+-   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
+-   GIT中的git status 查看中文乱码解决方法
+    -   git config --global core.quotepath false

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="divDemo">
+        <div>
+            <!-- id="cpt"为自定义Attribute -->
+            <cpt-1 id="cpt" v-bind:name="Name" v-bind:moives="Movies"></cpt-1>
+        </div>
+    </div>
+    <template id="tem">
+        <div>
+            <span>{{name}}</span>
+            <ul>
+                <li v-for="(item,index) in moives">
+                    这是第{{index+1}}部电影，名字叫{{item}}
+                </li>
+            </ul>
+        </div>
+    </template>
+    <script>
+        let app = new Vue({
+            el: '#divDemo',
+            data: {
+                Name: "sll",
+                Movies: ['武林外传1', '武林外传2', '武林外传3', '武林外传4']
+            },
+            components: {
+                'cpt-1': {
+                    template: `#tem`,
+                    // props: ['name', 'moives']                    
+                    props: {
+                        name: {
+                            type: String,/*限制属性类型*/
+                            default: "Nihaoya",/*设置属性默认值*/
+                            required: true/*这个属性值必须从外界传入，跟默认值无关*/
+                        },
+                        moives: Array
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
