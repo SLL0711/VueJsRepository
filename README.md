@@ -76,6 +76,6 @@ this.books.reduce(function (total, book) {
     -   父子组件通信：
         -   父组件通过prop传递数据给子组件
         -   子组件通过‘自定义事件’传递数据给父组件 $emit (使用$parent.函数名可以实现子组件调用父组件函数/于$emit区别)
--   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
--   GIT中的git status 查看中文乱码解决方法
++   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
++   GIT中的git status 查看中文乱码解决方法
     -   git config --global core.quotepath false
