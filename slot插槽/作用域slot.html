@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <script>
+        var obj = { name:'sll' };
+        console.log(obj)
+
+        function changeObj(obj) {
+            obj.name = 1;
+        }
+
+        changeObj(obj);
+        console.log(obj)
+
+    </script>
+    <template id="tpl">
+        <div class="cptcontainer">
+            <slot name="slot1" v-bind:data="pLanguage">
+                <ul>
+                    <li v-for="item in pLanguage">
+                        {{item}}
+                    </li>
+                </ul>
+            </slot>
+            <slot name="slot2" v-bind:data2="[1,2,3]">
+                <ul>
+                    <li v-for="item in pLanguage">
+                        {{item}}
+                    </li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+
+    <div id="divDemo">
+        <cpt-1>
+            <template slot-scope="slotProps" slot="slot1">
+                <span v-for="item in slotProps.data">
+                    {{item}}
+                </span>
+            </template>
+            <template v-slot:slot2="slotProps">
+                <span v-for="item in slotProps.data2">
+                    {{item}}
+                </span>
+            </template>
+        </cpt-1>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#divDemo',
+            data: {
+
+            },
+            components: {
+                'cpt-1': {
+                    template: '#tpl',
+                    data() {
+                        return {
+                            pLanguage: [
+                                'C', 'C++', 'C#', 'Java'
+                            ]
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

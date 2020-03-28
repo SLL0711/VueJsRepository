@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    .cptcontainer {
+        width: 200px;
+        height: 20px;
+        border: 1px solid grey;
+        border-radius: 15px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <template id="tpl">
+        <div class="cptcontainer">
+            <slot name="slotleft">Left</slot>
+            <slot name="slotcenter">Center</slot>
+            <slot name="slotright">Right</slot>
+        </div>
+    </template>
+
+    <div id="divDemo">
+        <cpt-1>
+            <template v-slot:slotleft><span>我是左</span></template>
+            <template v-slot:slotcenter><span>我是中</span></template>
+            <template v-slot:slotright><span>我是右</span></template>
+        </cpt-1>
+        <cpt-1>
+            <template v-slot:slotleft><button>我是左</button></template>
+            <template v-slot:slotcenter><button>我是中</button></template>
+            <template v-slot:slotright><button>我是右</button></template>
+        </cpt-1>
+    </div>
+
+    <script>
+        let app = new Vue({
+            el: '#divDemo',
+            components: {
+                'cpt-1': {
+                    template: '#tpl',
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

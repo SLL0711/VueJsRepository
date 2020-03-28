@@ -22,6 +22,7 @@ this.books.reduce(function (total, book) {
         }
 ```
 +   ES6中的let可以使变量在代码块中具有作用域，变量不受外界赋值影响
++   ES5中模板化的实现：定义变量接收闭包函数的调用结果，闭包函数返回Object
 +   理解：存在作用域的情况下，函数参数为'值参数'.在不存在作用域的情况下，函数参数为'引用参数'
 +   ES6增强写法
     -   {name,age}
@@ -75,7 +76,15 @@ this.books.reduce(function (total, book) {
     -   组件内的typeof(data) == function,每个组件实例指向一份独立的数据
     -   父子组件通信：
         -   父组件通过prop传递数据给子组件
-        -   子组件通过‘自定义事件’传递数据给父组件 $emit (使用$parent.函数名可以实现子组件调用父组件函数/于$emit区别)
+        -   子组件通过‘自定义事件’传递数据给父组件 $emit
+    -   子实例可以用 this.$parent 访问父实例，子实例被推入父实例的 $children 数组中。
+    -   节制地使用 $parent 和 $children - 它们的主要目的是作为访问组件的应急方法。更推荐用 props 和 events 实现父子组件通信
+    -   ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例：
+    -   slot插槽用来为Components提供可扩展性
+        -   具名slot <slot name="slotname">  <template slot="slotname" slot-scope="slotProps">
+        -   slotname用来标识template应用于哪个具体的slot插槽
+        -   slot-scope 用来接收slot传递的props对象
+        -   <template v-slot:slotname="slotProps"> v-slot是(slot="" slot-scope)的组合用法
 +   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
 +   GIT中的git status 查看中文乱码解决方法
     -   git config --global core.quotepath false
