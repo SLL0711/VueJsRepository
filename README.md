@@ -85,6 +85,7 @@ this.books.reduce(function (total, book) {
         -   slotname用来标识template应用于哪个具体的slot插槽
         -   slot-scope 用来接收slot传递的props对象
         -   <template v-slot:slotname="slotProps"> v-slot是(slot="" slot-scope)的组合用法
+        
 +   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
 +   GIT中的git status 查看中文乱码解决方法
     -   git config --global core.quotepath false
