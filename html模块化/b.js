@@ -1,2 +1,2 @@
-import obj from './a.js'
-alert(obj.flag)
+import {flag} from './a.js'
+alert(flag)

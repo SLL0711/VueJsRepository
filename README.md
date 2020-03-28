@@ -28,6 +28,10 @@ this.books.reduce(function (total, book) {
     -   {name,age}
     -   {eat(){}}
     -   `` 类似于 "" 但是可以直接包裹换行的代码
++   ES6 export import 
+    -   export {flag} 对应 import {flag} from '/js'
+    -   export default {} 对应 import 自定义名称 from '/js'
+    -   导入所有:import * as obj from '/js'  对应 obj.flag,obj.name
 +   命令式编程优势
     -   html JS数据绑定 分离
     -   MVVM模式：View ViewModel Model
