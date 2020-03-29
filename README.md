@@ -74,8 +74,10 @@ this.books.reduce(function (total, book) {
         -   父组件A 子组件B，Vue实例中只引用A的话无法在挂载Dom对象中直接使用B。
         必须在Vue实例中引入B
     -   组件模板抽离
-        -   <script type="x-template" id="cpt"> 需要定义在 Vue 所属的 DOM 元素外。
-        -   <template id="cpt">标签
+```
+        <script type="x-template" id="cpt"> 需要定义在 Vue 所属的 DOM 元素外。
+        <template id="cpt">标签
+```
     -   组件内部不能访问Vue实例的数据
     -   组件内的typeof(data) == function,每个组件实例指向一份独立的数据
     -   父子组件通信：
@@ -85,7 +87,10 @@ this.books.reduce(function (total, book) {
     -   节制地使用 $parent 和 $children - 它们的主要目的是作为访问组件的应急方法。更推荐用 props 和 events 实现父子组件通信
     -   ref 被用来给元素或子组件注册引用信息。引用信息将会注册在父组件的 $refs 对象上。如果在普通的 DOM 元素上使用，引用指向的就是 DOM 元素；如果用在子组件上，引用就指向组件实例：
     -   slot插槽用来为Components提供可扩展性
-        -   具名slot <slot name="slotname">  <template slot="slotname" slot-scope="slotProps">
+        -   具名slot 
+```
+<slot name="slotname">  <template slot="slotname" slot-scope="slotProps">
+```
         -   slotname用来标识template应用于哪个具体的slot插槽
         -   slot-scope 用来接收slot传递的props对象
         -   <template v-slot:slotname="slotProps"> v-slot是(slot="" slot-scope)的组合用法
@@ -93,7 +98,8 @@ this.books.reduce(function (total, book) {
 +   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
 +   GIT中的git status 查看中文乱码解决方法
     -   git config --global core.quotepath false
-##  webpack
+
+##  webpack ？?如何确认A.HTML 依赖 a.js B.HTML 依赖 b.js??
 +   gulp强调通过task定义一系列任务压缩、合并
 +   webpack强调模块化开发
 +   dist部署文件夹，src开发文件夹。命令：webpack ./src/main.js ./dist/bundle.js
@@ -102,3 +108,10 @@ this.books.reduce(function (total, book) {
 +   package开发时依赖webpack，生产环境不会依赖webpack
     -   devDependencies
     -   dependencies
++   css-loader 只负责加载 style-loader渲染css
++   Loader执行顺序从右往左,从下往上
+    -   css-loader：解析css文件
+    -   style-loader：将css样式渲染到DOM
+    -   url-loader:文件url，配置小于8Kb时直接返回base64url，大于8Kb时会通过file-loader重新生成图片到dist下
+    -   file-loader
+    -   npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
