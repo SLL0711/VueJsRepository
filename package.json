@@ -1,0 +1,26 @@
+{
+  "name": "VueJsRepository",
+  "version": "1.0.0",
+  "description": "My First Vue Project",
+  "main": "express.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SLL0711/VueJsRepository.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SLL0711/VueJsRepository/issues"
+  },
+  "homepage": "https://github.com/SLL0711/VueJsRepository#readme"
+}

@@ -93,3 +93,12 @@ this.books.reduce(function (total, book) {
 +   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
 +   GIT中的git status 查看中文乱码解决方法
     -   git config --global core.quotepath false
+##  webpack
++   gulp强调通过task定义一系列任务压缩、合并
++   webpack强调模块化开发
++   dist部署文件夹，src开发文件夹。命令：webpack ./src/main.js ./dist/bundle.js
++   webpack.config.js 配置webpack
++   npm run bundle,bundle 在package.json 文件的scripts标签的key，value配置的是对应的命令
++   package开发时依赖webpack，生产环境不会依赖webpack
+    -   devDependencies
+    -   dependencies
