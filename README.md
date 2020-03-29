@@ -115,3 +115,12 @@ this.books.reduce(function (total, book) {
     -   url-loader:文件url，配置小于8Kb时直接返回base64url，大于8Kb时会通过file-loader重新生成图片到dist下
     -   file-loader
     -   npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
+    -   npm install vue
+        -   问题：模块化加载vue时，webpack会把runtime版本vue打包进去，此时会报错。通过配置webpack解决
+```
+  resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js' // 用 webpack 1 时需用 'vue/dist/vue.common.js'
+          }
+      }
+```
