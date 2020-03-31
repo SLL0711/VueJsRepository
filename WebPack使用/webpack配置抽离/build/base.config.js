@@ -6,7 +6,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 module.exports = {
     entry: './src/main.js',
     output: {
-        path: path.join(__dirname, '/dist'),
+        path: path.join(__dirname, '../dist'),
         filename: 'bundle.js',
         // url资源找不到的情况下 配置该属性.默认以index.html为相对路径参照
         // publicPath: 'dist/'
@@ -55,17 +55,8 @@ module.exports = {
         }
     },
     plugins: [
-        new webpack.BannerPlugin('最终版权归SHENLILIN所有'),
         new HtmlWebpackPlugin({
             template:'index.html'
-        }),
-        new UglifyJsPlugin({
-            test: /\.js($|\?)/i
         })
-    ],
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        inline:true,
-        port:8080,
-      }
+    ]
 }

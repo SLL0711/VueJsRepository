@@ -1,5 +1,5 @@
 
-console.log('1')
+console.log('11')
 console.log('2')
 
 // CommonJS模块化规范

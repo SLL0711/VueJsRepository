@@ -9,6 +9,11 @@ this.books.reduce(function (total, book) {
 ```
 +   arr.map
 +   arr.filter
+##  VScode创建Vue自定义代码片段
++   文件-->首选项-->用户代码片段-->点击新建代码片段--取名vue.json 确定
+##  npm配置命令
++   package.json文件中配置Scripts标签
+    -   "bundle":"webpack"  npm run bundle
 ##  命令式编程>>申明式编程
 +   ES6中的let相较于var具有<font color="#dddd00">块级作用域</font>
     -   ES5中的'函数'具有作用域，可以使用闭包来解决一些作用域引发的问题
@@ -42,6 +47,7 @@ this.books.reduce(function (total, book) {
     -   data：变量
     -   methods:方法列表
     -   computed:计算属性,getter setter，类似属性访问器，性能优于method.计算属性是基于它们的响应式依赖进行缓存的
+    -   如果同时存在el template,则template会覆盖el挂载的divDemo，而不是往divDemo中插入template
 +   Vue指令
     -   v-for="item in list"
     -   v-on:click 语法糖：@click，.stop组织冒泡 .prevent组织默认行为,可以串联使用
@@ -117,6 +123,8 @@ this.books.reduce(function (total, book) {
     -   npm install --save-dev babel-loader@7 babel-core babel-preset-es2015
     -   npm install vue
         -   问题：模块化加载vue时，webpack会把runtime版本vue打包进去，此时会报错。通过配置webpack解决
+        
+    -   webpack 加载 .vue文件
 ```
   resolve: {
         alias: {
@@ -124,3 +132,45 @@ this.books.reduce(function (total, book) {
           }
       }
 ```
+
+##  webpack相关plugin
++   npm install --save-dev vue-loader vue-template-compiler 
+    -   vue-loader高版本下需要配置额外Plugin，可以手动设置为13.0.0版本
++   webpack横幅插件使用如下
+    -   plugins:[
+        new webpack.BannerPlugin('最终版权归SHENLILIN所有')
+    ]
++   打包html文件到dist部署文件夹  
+    -   plugins:[
+      new HtmlWebpackPlugin({
+            template:'index.html'  模板中定义：div#divDemo..
+        })
+    ]
++   JS压缩Plugin
+    -   npm install --save-dev uglifyjs-webpack-plugin@1.1.1 
+    -   plugins:[
+       new UglifyJsPlugin({
+            test: /\.js($|\?)/i
+        })
++   安装webpack-dev-server npm install webpack-dev-server@2.9.3 --save-dev
+    -   代码更改浏览器实时刷新，不用重新打包
+    -    devServer: {
+        contentBase: '../dist',
+        inline:true,
+        port:8080,
+      }
+##  webpack配置文件分离
++   npm install webpack-merge --save-dev
++   提取base.config.js prod.config.js dev.config.js并合并配置
+```
+const webpackMerge = require('webpack-merge')
+const baseConfig = require('./base.config')
+module.exports = webpackMerge(baseConfig, {
+    devServer: {
+        contentBase: '../dist',
+        inline: true,
+        port: 8080,
+    }
+})
+```
+##  VueCli 脚手架
