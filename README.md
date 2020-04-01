@@ -186,3 +186,5 @@ module.exports = webpackMerge(baseConfig, {
     -   static 中的gitkeep文件，保证git 提交时把空文件夹提交到git repository
     -   babelrc属于babel的配置文件
     -   editorconfig：编辑器设置，例如：代码缩进2空格...
+    -   package.json:记录包的大版本信息，npm init 会生成该文件
+    -   package-lock.json :记录本地安装的详细包信息，npm install 会生成该文件
