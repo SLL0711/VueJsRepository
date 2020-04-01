@@ -174,3 +174,15 @@ module.exports = webpackMerge(baseConfig, {
 })
 ```
 ##  VueCli 脚手架
++   全局安装新版CLI
+    -   npm install -g @vue/cli
++   全局安装CLI2.0
+    -   npm install -g @vue/cli-init
+    -   ESLint js代码规范
+    -   e2e test: end to end test端到端测试
++   CLI2创建的项目结构
+    -   static文件夹中的文件会原封不动copy到dist
+    -   src中的assets中的文件，会根据文件大小决定以base64展示 or 通过服务器文件路径查看
+    -   static 中的gitkeep文件，保证git 提交时把空文件夹提交到git repository
+    -   babelrc属于babel的配置文件
+    -   editorconfig：编辑器设置，例如：代码缩进2空格...
