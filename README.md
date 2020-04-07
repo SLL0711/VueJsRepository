@@ -188,3 +188,7 @@ module.exports = webpackMerge(baseConfig, {
     -   editorconfig：编辑器设置，例如：代码缩进2空格...
     -   package.json:记录包的大版本信息，npm init 会生成该文件
     -   package-lock.json :记录本地安装的详细包信息，npm install 会生成该文件
++   runtimecompiler && runtimeonly对比
+    -   template -> ats -> render -> vdom ->UI
+    -   runtimeonly不负责解析template。runtimecompiler则会解析template
+    -   vue-template-compiler 会将template自动解析，所以dist代码中不存在template。
