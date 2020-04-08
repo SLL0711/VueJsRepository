@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数的this，逐级向上层作用域中找到的第一个this
+        const obj = {
+            aaa() {
+                setTimeout(function () {
+                    console.log(this)//打印window
+                }, 1000);
+            },
+            bbb() {
+                setTimeout(() => {
+                    console.log(this)//打印obj对象
+                }, 1000);
+            }
+        }
+
+        obj.aaa();
+        obj.bbb();
+    </script>
+</body>
+
+</html>

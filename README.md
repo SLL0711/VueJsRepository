@@ -9,6 +9,31 @@ this.books.reduce(function (total, book) {
 ```
 +   arr.map
 +   arr.filter
++   箭头函数
+```
+         //1. 无参箭头函数
+        const c = () => { }
+        // 2.带参数的箭头函数
+        const sum = (a, b) => { return a + b }
+        // 带一个参数可以省略()
+        const power = num => { return num * num }
+        //只有一行代码的函数体
+        const mul = (num1, num2) => num1 + num2;
+
+           // 箭头函数的this，逐级向上层作用域中找到的第一个有定义的this
+        const obj = {
+            aaa() {
+                setTimeout(function () {
+                    console.log(this)//打印window
+                }, 1000);
+            },
+            bbb() {
+                setTimeout(() => {
+                    console.log(this)//打印obj对象
+                }, 1000);
+            }
+        }
+```
 ##  VScode创建Vue自定义代码片段
 +   文件-->首选项-->用户代码片段-->点击新建代码片段--取名vue.json 确定
 ##  npm配置命令
@@ -104,7 +129,6 @@ this.books.reduce(function (total, book) {
 +   Vue中的驼峰写法:CptNavigate编译成：cpt-navigate
 +   GIT中的git status 查看中文乱码解决方法
     -   git config --global core.quotepath false
-
 ##  webpack ？?如何确认A.HTML 依赖 a.js B.HTML 依赖 b.js??
 +   gulp强调通过task定义一系列任务压缩、合并
 +   webpack强调模块化开发
@@ -132,7 +156,6 @@ this.books.reduce(function (total, book) {
           }
       }
 ```
-
 ##  webpack相关plugin
 +   npm install --save-dev vue-loader vue-template-compiler 
     -   vue-loader高版本下需要配置额外Plugin，可以手动设置为13.0.0版本
@@ -190,5 +213,12 @@ module.exports = webpackMerge(baseConfig, {
     -   package-lock.json :记录本地安装的详细包信息，npm install 会生成该文件
 +   runtimecompiler && runtimeonly对比
     -   template -> ats -> render -> vdom ->UI
-    -   runtimeonly不负责解析template。runtimecompiler则会解析template
+    -   runtimeonly不负责解析template,不能在组件中使用template属性。runtimecompiler则会解析template
     -   vue-template-compiler 会将template自动解析，所以dist代码中不存在template。
++   CLI3创建项目结构 0配置
+    -   vue create '项目名'
+    -   public 文件夹中的文件会原封不动copy到dist
+    -   配置文件查看
+        -   1.vue ui
+        -   2.node_modules/@vue/cli-services
+    -   通过创建文件vue.config.js 可以自定义配置
