@@ -222,3 +222,6 @@ module.exports = webpackMerge(baseConfig, {
         -   1.vue ui
         -   2.node_modules/@vue/cli-services
     -   通过创建文件vue.config.js 可以自定义配置
+##  VueRoute路由
++   后端路由
+    -   后端处理URL对应哪个页面返回给浏览器
