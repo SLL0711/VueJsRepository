@@ -223,5 +223,10 @@ module.exports = webpackMerge(baseConfig, {
         -   2.node_modules/@vue/cli-services
     -   通过创建文件vue.config.js 可以自定义配置
 ##  VueRoute路由
++   发展史：后端渲染->前后端分离（前端渲染）->SPA应用
++   后端渲染：类似asp.net MVC可以在不使用JS的情况下，服务器组装好html发送到浏览器上
++   前端渲染：后台api只提供数据，前端接收到数据后通过JS渲染页面
 +   后端路由
     -   后端处理URL对应哪个页面返回给浏览器
++   前端路由
+    -   静态资源服务器根据不同URL返回不同页面给浏览器，此过程还不涉及后端api服务器
