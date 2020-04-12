@@ -211,6 +211,9 @@ module.exports = webpackMerge(baseConfig, {
     -   editorconfig：编辑器设置，例如：代码缩进2空格...
     -   package.json:记录包的大版本信息，npm init 会生成该文件
     -   package-lock.json :记录本地安装的详细包信息，npm install 会生成该文件
+    -   app.js 业务逻辑代码
+    -   vendor.js 第三方代码
+    -   manifest.js 底层支撑代码
 +   runtimecompiler && runtimeonly对比
     -   template -> ats -> render -> vdom ->UI
     -   runtimeonly不负责解析template,不能在组件中使用template属性。runtimecompiler则会解析template
@@ -228,5 +231,70 @@ module.exports = webpackMerge(baseConfig, {
 +   前端渲染：后台api只提供数据，前端接收到数据后通过JS渲染页面
 +   后端路由
     -   后端处理URL对应哪个页面返回给浏览器
-+   前端路由
-    -   静态资源服务器根据不同URL返回不同页面给浏览器，此过程还不涉及后端api服务器
++   前端路由（SPA应用需要前端路由支撑
+    -   SPA应用只有一个html、css、js
+    -   SPA应用最大的特点：在前后端分离的前提下加上一套‘前端路由’
+    -   通过前端router映射出浏览器URL对应的部分html资源进行渲染
++   修改url而不刷新的方式
+    -   修改window.location.hash = 'aaa' 会出现#
+    -   修改history.pushState('','','aaa')。pushstate类似入栈操作，先入后出。调用history.back()类似出栈操作，移除栈顶元素
++   使用vue-router
+```
+// 配置路由相关信息
+import Router from 'vue-router'
+import Vue from 'vue'
+import routes from './routemap'
+
+// 使用步骤
+// 1.Vue.use(插件),安装插件
+Vue.use(Router);
+
+// 2.创建路由对象
+// 配置路径和组件的映射关系
+
+const router = new Router({
+    routes,
+    // mode:'history'
+})
+
+// 3.将Router对象传入Vue
+export default router
+
+
+```
+##   vue-router
++   内置标签router-link属性
+    -   tag:默认a 可以设置buttton li 
+    -   active-class : 激活时使用的class名
+    -   to：目标路由的链接
+    -   replace：类似使用'history.replacestate()' 替代 'history.pushstate()',返回键不会高亮
++   内置标签router-view属性
+    -   作为一个占位标签，渲染url对应的组件
++   linkActiveClass:全局配置 router-link 默认的激活的 class
++   $router:获取当前配置的VueRouter对象
++   $route:获取当前URL对应的route对象
++   动态路由配置
+1.通过$route.params可以获取到路由参数
+
+|  模式   | 匹配路径  | $route.params |
+|  ----  | ----  | ----  |
+| /user/:username  | /user/evan |{ username: 'evan'  |
+| /user/:username/post/:post_id  | 	/user/evan/post/123 |{ username: 'evan', post_id: '123' } |
+
+2.通过query传递路由参数
+:to={path:'/profile',query:{name:'sll1'}}
++   路由懒加载
+    -   当打包构建应用时，JavaScript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。
+    -   const Foo = () => import('./Foo.vue')
++   路由嵌套
+    -   1.在组件中添加router-view标签，用于渲染子组件
+    -   2.配置子组件路由，通过children:[子路由]
++   导航守卫
+    -   “导航”表示路由正在发生改变（参数或查询的改变并不会触发进入/离开的导航守卫）
+    -   正如其名，vue-router 提供的导航守卫主要用来通过跳转或取消的方式守卫导航
++   keep-alive
+    -   keepalive包裹routerview之后组件不会被重复创建、销毁
+    -   activated、deactivated会被触发
+    -   exclude可以将某个组件排除
++   路径别名alias
+    -   webpack.base.config.js,resolve属性
