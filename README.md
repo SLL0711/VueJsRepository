@@ -73,6 +73,9 @@ this.books.reduce(function (total, book) {
     -   methods:方法列表
     -   computed:计算属性,getter setter，类似属性访问器，性能优于method.计算属性是基于它们的响应式依赖进行缓存的
     -   如果同时存在el template,则template会覆盖el挂载的divDemo，而不是往divDemo中插入template
++   Vue方法
+    -   Vue.set() 设置数组或者对象值，实现响应式
+    -   Vue.delete() 删除数组或者对象值，实现响应式
 +   Vue指令
     -   v-for="item in list"
     -   v-on:click 语法糖：@click，.stop组织冒泡 .prevent组织默认行为,可以串联使用
@@ -298,3 +301,25 @@ export default router
     -   exclude可以将某个组件排除
 +   路径别名alias
     -   webpack.base.config.js,resolve属性
+##  Vuex
++   什么时候需要使用vuex  
+Flux 架构就像眼镜：您自会知道什么时候需要它。
+![vuex](https://vuex.vuejs.org/vuex.png)
++   npm install vuex --save
++   通过$store.state.property获取公共属性
++   修改store中存储的数据，必须调用mutations中函数进行修改，才可以被devtools捕捉到对应状态。
++   state:类似字段，用于全局存储.state对象中预先定义的属性才会自动实现响应式
++   mutations:类似方法,用于操作state。由type/函数名+function/回调函数组成。必须是同步函数。官方建议：使用常量替代 Mutation 事件类型
++   getter:类似属性,对state进行处理之后返回
++   action：提交的是 mutation，而不是直接变更状态。Action 可以包含任意异步操作
++   modules:定义namespaced：true,效果：moduleName/UpdateModuleName
++   项目结构
+    -   应用层级的状态应该集中到单个 store 对象中。
+    -   提交 mutation 是更改状态的唯一方法，并且这个过程是同步的。
+    -   异步逻辑都应该封装到 action 里面。
+###  引用第三方网络请求框架前需要封装，原因：应对变化，如果需要更换网络请求框架，不需要每个地方更改
+##  axios网络请求
++   npm install axios --save import axios from 'axios'
++   axios({url:''}).then(()=>{})
++   拦截器：请求成功 请求失败 响应成功 响应失败
+#   通过NODEJS爬虫抓取相关小程序数据存储到Mongodb
