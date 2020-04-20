@@ -322,4 +322,20 @@ Flux 架构就像眼镜：您自会知道什么时候需要它。
 +   npm install axios --save import axios from 'axios'
 +   axios({url:''}).then(()=>{})
 +   拦截器：请求成功 请求失败 响应成功 响应失败
+## vue 划分项目结构
++ assets 资源文件夹
+    -   img 图片文件
+    -   css 样式文件
++   components 组件文件夹
+    -   common公共组件，类似：tabbar 可以跨项目复用
+    -   content公共组件，当前项目中会存在复用
++   views 当前项目下的视图
+    -   category 分类页面相关组件
+    -   home 主页相关组件
++   router 当前项目中的路由配置文件
++   store vuex相关的配置文件
++   common 当前项目中的公共js
+    -   util.js 公共类库
+    -   const.js 静态变量资源库
+
 #   通过NODEJS爬虫抓取相关小程序数据存储到Mongodb

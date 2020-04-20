@@ -7,7 +7,7 @@ function request(config) {
             timeout: 30 * 1000
         })
 
-        instance({ config }).then(res => {
+        instance(config).then(res => {
             resolve(res)
         }).catch(err => {
             reject(err)
